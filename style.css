@@ -256,3 +256,7 @@ width: 100%;
 .categories{
     padding: 50px 0;
 }
+
+a{
+    cursor: pointer;
+}
