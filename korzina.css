@@ -1,0 +1,13 @@
+body{
+    background-color: rgba(140, 189, 63, 0.7);
+}
+
+.block{
+    width: 200px;
+    height: 300px;
+    background-color: white;
+}
+
+img{
+    height: 70px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="regBlock">
+            <div class="img">
+                <img src="logo.png" alt="">
+            </div>
+            <input id="userLogin" type="text" placeholder="Введите ваш логин">
+            <div class="loginAlert" id="loginAlert"></div>
+            <input type="password" id="password" placeholder="Придумайте пароль">
+            <div class="passwordAlert" id="passwordAlert"></div>
+            <button id="loginBtn" onclick="loginBtn()">Войти</button>
+            <a class="link" href="registration.html">Еще не зарегистрированы? Нажмите для регистрации</a>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

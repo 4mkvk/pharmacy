@@ -1,0 +1,136 @@
+@font-face{
+    font-family: "Montserrat-Medium";
+    src: url(./fonts/Montserrat-Medium.ttf);
+}
+
+@font-face{
+    font-family: "Montserrat-SemiBold";
+    src: url(./fonts/Montserrat-SemiBold.ttf);
+}
+
+body{
+    background-color: rgba(140, 189, 63, 0.7);
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.regBlock{
+    width: 654px;
+    height: 488px;
+    border-radius: 40px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.passwordsLine{
+    display: flex;
+}
+
+::placeholder{
+    font-family: "Montserrat-Medium";
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+}
+
+.img img{
+    height: 160px;
+}
+
+#userName{
+    width: 435px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #8CBD3F;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    margin: 10px 0 10px 0;
+}
+
+#userLogin{
+    width: 435px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #8CBD3F;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    margin: 10px 0 0 0;
+}
+
+#password{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #8CBD3F;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0 10px 0 0;
+}
+
+#passwordRepeat{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #8CBD3F;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0 0 0 20px;
+}
+
+#registerBtn{
+    width: 435px;
+    height: 40px;
+    background: #8CBD3F;
+    border: 2px solid #8CBD3F;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: "Montserrat-SemiBold";
+    color: white;
+    cursor: pointer;
+}
+
+.loginAlert{
+    color: black;
+    font-family: "Montserrat-Medium";
+    font-size: 16px;
+    margin: 10px 0 10px 0;
+}
+
+.passwordAlert{
+    color: black;
+    font-family: "Montserrat-Medium";
+    font-size: 16px;
+    margin: 10px 0 10px 0;
+}
+
+.btn{
+    position: fixed;
+    right: 10px; 
+    bottom: 10px; 
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.link{
+    margin-top: 15px;
+    font-family: "Montserrat-Medium";
+}

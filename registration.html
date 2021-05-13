@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="regBlock">
+            <div class="img">
+                <img src="logo.png" alt="">
+            </div>
+            <input id="userName" type="text" placeholder="Введите ваше имя">
+            <input id="userLogin" type="text" placeholder="Введите ваш логин">
+            <div class="loginAlert" id="loginAlert"></div>
+            <div class="passwordsLine">
+                <input type="password" id="password" placeholder="Придумайте пароль">
+                <input type="password" id="passwordRepeat" placeholder="Повторите ваш пароль">
+            </div>
+            <div class="passwordAlert" id="passwordAlert"></div>
+            <button id="registerBtn" onclick="register()">Зарегистрироваться</button>
+            <a class="link" href="login.html">Уже зарегистрированы? Нажмите для авторизации</a>
+        </div>
+    </div>
+    <button class="btn" onclick="createTestsArray()">Create</button>
+    <script src="registration.js"></script>
+</body>
+</html>
