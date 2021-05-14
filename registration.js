@@ -7,12 +7,14 @@ let passwordAlert = document.getElementById("passwordAlert")
 let users = JSON.parse(localStorage.getItem("users"))
 
 class Item {
+    id;
     itemName;
     description;
     price;
     img_src;
     category;
-    constructor(newItemName, newImage, newDescription, newPrice, newCategory) {
+    constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory) {
+        this.id = NewId;
         this.itemName = newItemName;
         this.description = newDescription;
         this.price = newPrice;
@@ -88,11 +90,13 @@ let register = () => {
 
 function createTestsArray() {
     let drugs = [
-        new Item('Oleg1', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category'),
-        new Item('Oleg2', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category'),
-        new Item('Oleg3', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category')
+        new Item(0, 'Oleg1', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category'),
+        new Item(1, 'Oleg2', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category'),
+        new Item(2, 'Oleg3', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category')
     ]
     let users = []
     localStorage.setItem('users', JSON.stringify(users))
     localStorage.setItem('drugs', JSON.stringify(drugs))
+    localStorage.setItem('cart', JSON.stringify([]))
 }
+

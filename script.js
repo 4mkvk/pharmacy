@@ -1,10 +1,21 @@
+let userName = document.getElementById("userName")
+let loggedUser = null
+
+if(localStorage.getItem("loggedUser") === null){
+    userName.innerHTML = 
+}else{
+    userName.
+}
+
 class Item {
+    id;
     itemName;
     description;
     price;
     img_src;
     category;
-    constructor(newItemName, newImage, newDescription, newPrice, newCategory) {
+    constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory) {
+        this.id = NewId;
         this.itemName = newItemName;
         this.description = newDescription;
         this.price = newPrice;
@@ -66,37 +77,49 @@ console.log(drugsArray)
 const products = $('#products')
 
 for (let i = 0; i < drugsArray.length; i++) {
-    console.log(drugsArray[i]['img'])
     products.append(`
             <div class="products__item">
                 <img src="${drugsArray[i]['img_src']}" alt="">
                 <p>${drugsArray[i]['itemName']}</p>
                 <span>${drugsArray[i]['category']}</span>
-                <p onclick = 'deleteItem("${drugsArray[i]['itemName']}")'>delete item</p>
-                <p id = 'addToCart'>add to cart </p>
+                <p onclick = 'deleteItem(${drugsArray[i]['id']})'>delete item</p>
+                <p onclick = 'addToCart()'>add to cart </p>
             </div>
 `)
 }
 
 function addNewDrug() {
+    let newId = drugsArray.length;
     let inputName = document.getElementById('itemName').value
     let inputImageUrl = document.getElementById('imageUrl').value
     let inputDescription = document.getElementById('desc').value
     let inputPrice = document.getElementById('price').value
     let inputCategory = document.getElementById('category').value
 
-    let newDrug = new Item(inputName, inputImageUrl, inputDescription, inputPrice, inputCategory)
+    let newDrug = new Item(newId ,inputName, inputImageUrl, inputDescription, inputPrice, inputCategory)
     drugsArray.push(newDrug)
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
     location.reload()
 }
 
-function deleteItem(itemName) {
+function addToCart(id){
+    let cart = JSON.parse(localStorage.getItem("cart"))
     for (let i = 0; i < drugsArray.length; i++) {
         console.log(drugsArray[i].itemName)
-        if (drugsArray[i].itemName === itemName) {
+        if (drugsArray[i].id === id) {
+            cart.push(drugsArray[i]);
+            break;
+        }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart        ))
+}
+
+function deleteItem(id) {
+    for (let i = 0; i < drugsArray.length; i++) {
+        if (drugsArray[i].id === id) {
             drugsArray.splice(i, 1)
-            console.log(drugsArray)
+            console.log(id)
         }
     }
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
