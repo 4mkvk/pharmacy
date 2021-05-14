@@ -44,7 +44,6 @@ class Item {
 }
 
 
-
 let btnCreate = document.getElementById('createGood');
 let modalCreate = document.getElementById('modal')
 
@@ -74,12 +73,13 @@ for (let i = 0; i < drugsArray.length; i++) {
                 <p>${drugsArray[i]['itemName']}</p>
                 <span>${drugsArray[i]['category']}</span>
                 <p onclick = 'deleteItem("${drugsArray[i]['itemName']}")'>delete item</p>
+                <p id = 'addToCart'>add to cart </p>
             </div>
 `)
 }
 
 function addNewDrug() {
-    let inputName = document.getElementById('name').value
+    let inputName = document.getElementById('itemName').value
     let inputImageUrl = document.getElementById('imageUrl').value
     let inputDescription = document.getElementById('desc').value
     let inputPrice = document.getElementById('price').value
@@ -94,7 +94,7 @@ function addNewDrug() {
 function deleteItem(itemName) {
     for (let i = 0; i < drugsArray.length; i++) {
         console.log(drugsArray[i].itemName)
-        if (drugsArray[i].name === itemName) {
+        if (drugsArray[i].itemName === itemName) {
             drugsArray.splice(i, 1)
             console.log(drugsArray)
         }
