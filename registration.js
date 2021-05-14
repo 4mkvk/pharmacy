@@ -6,7 +6,54 @@ let passwordRepeat = document.getElementById("passwordRepeat")
 let passwordAlert = document.getElementById("passwordAlert")
 let users = JSON.parse(localStorage.getItem("users"))
 
-let register = () =>{
+class Item {
+    itemName;
+    description;
+    price;
+    img_src;
+    category;
+    constructor(newItemName, newImage, newDescription, newPrice, newCategory) {
+        this.itemName = newItemName;
+        this.description = newDescription;
+        this.price = newPrice;
+        this.img_src = newImage
+        this.category = newCategory
+    }
+    get itemName() {
+        return this.itemName;
+    }
+    set itemName(newItemName) {
+        this.itemName = newItemName;
+    }
+    get description() {
+        return this.description;
+    }
+    set description(newDescription) {
+        this.description = newDescription;
+    }
+    get price() {
+        return this.price;
+    }
+    set price(newPrice) {
+        this.price = newPrice;
+    }
+    get img() {
+        return this.img_src;
+    }
+    set img(newImage) {
+        this.img_src = newImage;
+    }
+    get category() {
+        return this.category;
+    }
+    set category(newCategory) {
+        this.category = newCategory;
+    }
+}
+
+
+
+let register = () => {
     if (login.value.length < 6) {
         login.style.border = "2px solid red"
         loginAlert.innerHTML = "Логин должен состоять как минимум из 6 знаков"
@@ -40,8 +87,12 @@ let register = () =>{
 }
 
 function createTestsArray() {
-    let tests = []
+    let drugs = [
+        new Item('Oleg1', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category'),
+        new Item('Oleg2', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category'),
+        new Item('Oleg3', 'https://s0.rbk.ru/v6_top_pics/media/img/7/78/755953432670787.jpg', 'Олег Тиньков поставляет лекарства', 20.99, 'Aleg category')
+    ]
     let users = []
     localStorage.setItem('users', JSON.stringify(users))
-    localStorage.setItem('testsArray', JSON.stringify(tests))
+    localStorage.setItem('drugs', JSON.stringify(drugs))
 }

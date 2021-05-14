@@ -35,6 +35,7 @@ body{
     width: 85%;
     background-color: #fff;
     margin: 55px auto;
+    position: relative;
 }
 .navbar a{
     /* text-decoration: none; */
@@ -95,17 +96,23 @@ width: 100%;
     border-radius: 5px;
     transition: all 0.5s linear 0.1ms;
 }
-.products__item:hover{
+/* .products__item:hover{
     transform: scale(1.3);
     background: rgba(0, 0, 0, 0.3);
         position: relative;
     top: -30px;
     left: -50px;
     transition: all 0.5s linear 0.1ms;
-}
+} */
 .products__item p{
     font-size: 20px;
     font-family: 'Msemibold';
+    cursor: pointer;
+}
+.products__item img{
+    width: 200px;
+    height: 170px;
+    padding: 15px 0;
 }
 .products{
     display: flex;
@@ -255,4 +262,80 @@ width: 100%;
 }
 .categories{
     padding: 50px 0;
+}
+#createGood{
+    border: 1px solid #8CBD3F;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'mBold';
+    color: #8CBD3F;
+    background-color: #fff;
+    cursor: pointer;
+}
+#createGood:hover{
+    background-color: #8CBD3F;
+    color: white;
+    border: 1px solid white;
+    transition: all 0.3s linear 0.1ms;
+}
+.wrapper-button{
+    padding: 50px 0;
+}
+
+#modal{
+    width: 30%;
+    height: fit-content;
+    background-color: #8CBD3F;
+    display: none;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 35px 0;
+    margin: 0 auto;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    border-radius: 10px;
+    box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.3);
+}
+#modal input{
+    width: 40%;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-family: 'Mmedium';
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+#btnSubmit{
+    background-color: #fff;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'mBold';
+    cursor: pointer;
+}
+#btnSubmit:hover{
+    box-shadow: 0 0 2px 1px inset rgba(0, 0, 0, 0.4);
+}
+#btnSubmit:focus{
+    box-shadow: 0 -1px 2px 2px inset rgba(0, 0, 0, 0.3);
+}
+#displaynone{
+    font-size: 25px;
+    font-family: 'mBold';
+    position: absolute;
+    right: 25px;
+    top: 5px;
+    color: white;
+    cursor: pointer;
 }

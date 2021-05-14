@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -37,55 +39,8 @@
             </div>
         </section>
 
-        <section class="products">
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
-            <div class="products__item">
-                <img src="img/фыв 2.png" alt="">
-                <p>Kardiomagnil 75mg</p>
-            </div>
+        <section class="products" id="products">
+
         </section>
 
         <section class="favourite">
@@ -206,6 +161,25 @@
                 </div>
             </div>
         </section>
+
+
+        <div class="wrapper-button">
+            <button id="createGood" onclick="showModalCreate()">Wish to upload goods?</button>
+        </div>
+        <div id="modal">
+            <span id="displaynone" onclick="hideModalCreate()">x</span>
+            <input type="text" id="name" placeholder="name of product" required>
+            <br>
+            <input type="text" id="imageUrl" placeholder="imageUrl" required>
+            <br>
+            <input type="text" id="desc" placeholder="write a description" required>
+            <br>
+            <input type="text" id="price" placeholder="price" required>
+            <br>
+            <input type="text" name="" id="category" placeholder="category" required>
+            <br>
+            <button id="btnSubmit" onclick="addNewDrug()">Add product</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
