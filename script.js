@@ -1,12 +1,20 @@
-let userName = document.getElementById("userName")
+let users = JSON.parse(localStorage.getItem("users"))
 let loggedUser = null
+let username = document.getElementById("userName")
 
-// if (localStorage.getItem("loggedUser") === null) {
-//     userName.innerHTML = 
-// }
-// else {
-//     userName.
-// }
+if (localStorage.getItem("loggedUser") === null) {
+    userName.style.display =  "none"
+}
+else {
+    for(let i = 0; i < users.length; i++){
+        username.innerText = users[i].userName
+    }
+}
+
+
+
+
+
 
 class Item {
     id;
