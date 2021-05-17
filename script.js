@@ -1,11 +1,12 @@
 let userName = document.getElementById("userName")
 let loggedUser = null
 
-if(localStorage.getItem("loggedUser") === null){
-    userName.innerHTML = 
-}else{
-    userName.
-}
+// if (localStorage.getItem("loggedUser") === null) {
+//     userName.innerHTML = 
+// }
+// else {
+//     userName.
+// }
 
 class Item {
     id;
@@ -82,8 +83,9 @@ for (let i = 0; i < drugsArray.length; i++) {
                 <img src="${drugsArray[i]['img_src']}" alt="">
                 <p>${drugsArray[i]['itemName']}</p>
                 <span>${drugsArray[i]['category']}</span>
-                <p onclick = 'deleteItem(${drugsArray[i]['id']})'>delete item</p>
-                <p onclick = 'addToCart()'>add to cart </p>
+                <div class = 'products-items_links'>
+                <p onclick = 'deleteItem(${drugsArray[i]['id']})' style = 'cursor:pointer'>delete item</p>
+                <p onclick = 'addToCart()' style = 'cursor:pointer'>add to cart </p></div>
             </div>
 `)
 }
@@ -96,13 +98,13 @@ function addNewDrug() {
     let inputPrice = document.getElementById('price').value
     let inputCategory = document.getElementById('category').value
 
-    let newDrug = new Item(newId ,inputName, inputImageUrl, inputDescription, inputPrice, inputCategory)
+    let newDrug = new Item(newId, inputName, inputImageUrl, inputDescription, inputPrice, inputCategory)
     drugsArray.push(newDrug)
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
     location.reload()
 }
 
-function addToCart(id){
+function addToCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"))
     for (let i = 0; i < drugsArray.length; i++) {
         console.log(drugsArray[i].itemName)
@@ -112,7 +114,7 @@ function addToCart(id){
         }
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart        ))
+    localStorage.setItem("cart", JSON.stringify(cart))
 }
 
 function deleteItem(id) {
@@ -122,7 +124,6 @@ function deleteItem(id) {
             console.log(id)
         }
     }
+    location.reload()
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
-
-    console.log(' ne rabotaet')
 }
