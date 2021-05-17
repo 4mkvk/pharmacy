@@ -2,12 +2,25 @@ body{
     background-color: rgba(140, 189, 63, 0.7);
 }
 
-.block{
-    width: 200px;
-    height: 300px;
+.wrapper-block{
+    width: 400px;
+    box-sizing: border-box;
+    padding: 15px;
     background-color: white;
+    margin: 15px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-
+#block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 img{
-    height: 70px;
+    width: 60%;
+    height: 200px;
 }

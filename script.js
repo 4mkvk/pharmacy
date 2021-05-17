@@ -85,7 +85,7 @@ for (let i = 0; i < drugsArray.length; i++) {
                 <span>${drugsArray[i]['category']}</span>
                 <div class = 'products-items_links'>
                 <p onclick = 'deleteItem(${drugsArray[i]['id']})' style = 'cursor:pointer'>delete item</p>
-                <p onclick = 'addToCart()' style = 'cursor:pointer'>add to cart </p></div>
+                <p onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
             </div>
 `)
 }
