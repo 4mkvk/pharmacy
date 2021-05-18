@@ -4,6 +4,7 @@ let username = document.getElementById("userName")
 
 if (localStorage.getItem("loggedUser") === null) {
     userName.style.display =  "none"
+    username.innerText = "Войдите"
 }
 else {
     for(let i = 0; i < users.length; i++){

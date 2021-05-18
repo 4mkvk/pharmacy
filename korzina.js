@@ -7,6 +7,19 @@ for(let i = 0; i < cart.length; i++){
         <p>${cart[i].itemName}</p>
         <p>${cart[i].category}</p>
         <p>${cart[i].description}</p>
+        <button onclick="removeItem(${cart[i].id})">Remove item</button>
         </div>
     `)
+
+    function removeItem(id) {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === id) {
+                cart.splice(i, 1)
+                console.log(id)
+            }
+        }
+        location.reload()
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }
 }
+
