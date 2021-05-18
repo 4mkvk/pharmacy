@@ -19,12 +19,9 @@
             <div class="logo">
                 <img src="img/jopa 1.png" alt="">
             </div>
-            <div id="userNameBlock">
-                <span id="userName"></span>
-            </div>
             <nav class="navbar">
-                <a href="#">saved products</a>
                 <a href="korzina.html">cart</a>
+                <span id="userName"></span>
                 <a href="login.html">log in</a>
             </nav>
         </header>
@@ -43,7 +40,15 @@
         </section>
 
         <section class="products" id="products">
-
+            <div class="cart-modal" id="cart-modal">
+                <span id="displaynone" onclick="hideCartModal()">x</span>
+                <p>Поздравляем!</p>
+                <div class="info-modal">
+                    <span>Товар успешно добален в корзину</span>
+                    <span id="count"></span>
+                    <a id="modalLink" onclick="goToCart()">Перейти в корзину</a>
+                </div>
+            </div>
         </section>
 
         <section class="favourite">

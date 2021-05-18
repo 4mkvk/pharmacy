@@ -3,11 +3,11 @@ let loggedUser = null
 let username = document.getElementById("userName")
 
 if (localStorage.getItem("loggedUser") === null) {
-    userName.style.display =  "none"
+    userName.style.display = "none"
     username.innerText = "Войдите"
 }
 else {
-    for(let i = 0; i < users.length; i++){
+    for (let i = 0; i < users.length; i++) {
         username.innerText = users[i].userName
     }
 }
@@ -79,6 +79,11 @@ hideModalCreate = () => {
 }
 
 
+let cartModal = document.getElementById('cart-modal');
+
+hideCartModal = () => {
+    cartModal.style.display = 'none'
+}
 
 
 let drugsArray = JSON.parse(localStorage.getItem('drugs'))
@@ -113,6 +118,11 @@ function addNewDrug() {
     location.reload()
 }
 
+
+countCart = 0
+let countInModal = document.getElementById('count')
+
+
 function addToCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"))
     for (let i = 0; i < drugsArray.length; i++) {
@@ -122,8 +132,12 @@ function addToCart(id) {
             break;
         }
     }
-
+    countCart++
     localStorage.setItem("cart", JSON.stringify(cart))
+
+    countInModal.innerHTML = 'В корзине находится ' + " " + countCart + ' товаров'
+    cartModal.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
 }
 
 function deleteItem(id) {
@@ -135,4 +149,8 @@ function deleteItem(id) {
     }
     location.reload()
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
+}
+
+function goToCart() {
+    location.href = 'korzina.html'
 }
