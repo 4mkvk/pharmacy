@@ -26,6 +26,7 @@ class Item {
     price;
     img_src;
     category;
+    clicksCount;
     constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory) {
         this.id = NewId;
         this.itemName = newItemName;
@@ -33,6 +34,7 @@ class Item {
         this.price = newPrice;
         this.img_src = newImage
         this.category = newCategory
+        this.clicksCount = 0
     }
     get itemName() {
         return this.itemName;
@@ -130,16 +132,19 @@ let countInModal = document.getElementById('count')
 
 
 function addToCart(id) {
+    let drugsArray = JSON.parse(localStorage.getItem('drugs'))
     let cart = JSON.parse(localStorage.getItem("cart"))
     for (let i = 0; i < drugsArray.length; i++) {
         console.log(drugsArray[i].itemName)
         if (drugsArray[i].id === id) {
+            drugsArray[i].clicksCount++;
             cart.push(drugsArray[i]);
             break;
         }
     }
     countCart++
     localStorage.setItem("cart", JSON.stringify(cart))
+    localStorage.setItem("drugs", JSON.stringify(drugsArray))
 
     countInModal.innerHTML = 'В корзине находится ' + " " + countCart + ' товаров'
     cartModal.style.display = 'flex'
@@ -174,6 +179,40 @@ function LogExit(){
 
 
 
+function favouriteItem(){
+    let drugsArray = JSON.parse(localStorage.getItem('drugs'))
+    drugsArray.sort(function(first, second){
+        return second.clicksCount - first.clicksCount;
+    });
 
 
+    for(let i = 0; i < 3; i++){
+        $('#favouriteItem').append(`
+        <div onclick='showFavItem(${drugsArray[i].id})' class="favourite__item">
+            <img src="${drugsArray[i].img_src}" alt="">
+            <div class="inline-block">
+                <span id="name">${drugsArray[i].itemName}</span>
+            </div>
+            <p id="description">${drugsArray[i].description}</p>
+            <div class="cta-cart">
+                <span id="price" class="price">${drugsArray[i].price}</span>
+                <a onclick="addToCart(${drugsArray[i].id})">add
+                to cart</a>
+            </div>
+        </div>
+        `)
+    }
+}
 
+favouriteItem();
+
+
+function showFavItem(id){
+    let currentItem = null
+    for(let i = 0; i < drugsArray.length; i++){
+        if(drugsArray[i].id === id){
+            currentItem = drugsArray[i]
+        }
+    }
+    
+}

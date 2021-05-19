@@ -168,16 +168,18 @@ width: 100%;
     padding: 15px;
     margin: 0 15px;
     border-radius: 5px;
+    height: 330px;
+    overflow: hidden;
 }
 .favourite__item:hover{
     box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.3);
     transform: scale(1.1);
     transition: all 0.5s linear 0.1ms;
 }
-.favourite__item:hover img{
-    transform: scale(1.1);
-    transition: all 0.2s linear 0.1ms;
+.favourite__item a{
+    cursor: pointer;
 }
+
 .inline-block{
     background-color: #DBDAC8;
     text-align: center;
@@ -199,6 +201,11 @@ width: 100%;
 .favourite__item p{
     font-family: 'Mlight';
     font-size: 18px;
+    overflow: hidden;
+}
+.favourite__item img{
+    height: 150px;
+    width: 170px;
 }
 .price{
     font-family: 'Mmedium';

@@ -1,3 +1,20 @@
+let users = JSON.parse(localStorage.getItem("users"))
+let loggedUser = null
+let username = document.getElementById("userName")
+let logExit = document.getElementById("LogExit")
+
+if (localStorage.getItem("loggedUser") === null) {
+    location.href = "login.html"
+}
+// else {
+//     for(let i = 0; i < users.length; i++){
+//         username.innerText = users[i].userName
+//         logExit.innerText = "Exit"
+//     }
+// }
+
+
+
 let cart = JSON.parse(localStorage.getItem("cart"))
 console.log(cart)
 for(let i = 0; i < cart.length; i++){
