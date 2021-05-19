@@ -4,11 +4,11 @@ let username = document.getElementById("userName")
 let logExit = document.getElementById("LogExit")
 
 if (localStorage.getItem("loggedUser") === null) {
-    userName.style.display =  "none"
+    userName.style.display = "none"
     logExit.innerText = "Log in"
 }
 else {
-    for(let i = 0; i < users.length; i++){
+    for (let i = 0; i < users.length; i++) {
         username.innerText = users[i].userName
         logExit.innerText = "Exit"
     }
@@ -90,7 +90,8 @@ showModalCreate = () => {
 }
 
 hideCartModal = () => {
-    cartModal.style.display = 'none'
+    cartModal.style.display = 'none';
+    document.body.style.overflow = 'auto'
 }
 
 
@@ -166,7 +167,7 @@ function goToCart() {
     location.href = 'korzina.html'
 }
 
-function LogExit(){
+function LogExit() {
     if (localStorage.getItem('loggedUser') === null) {
         location.href = 'login.html'
 
@@ -179,14 +180,14 @@ function LogExit(){
 
 
 
-function favouriteItem(){
+function favouriteItem() {
     let drugsArray = JSON.parse(localStorage.getItem('drugs'))
-    drugsArray.sort(function(first, second){
+    drugsArray.sort(function (first, second) {
         return second.clicksCount - first.clicksCount;
     });
 
 
-    for(let i = 0; i < 3; i++){
+    for (let i = 0; i < 3; i++) {
         $('#favouriteItem').append(`
         <div onclick='showFavItem(${drugsArray[i].id})' class="favourite__item">
             <img src="${drugsArray[i].img_src}" alt="">
@@ -207,12 +208,12 @@ function favouriteItem(){
 favouriteItem();
 
 
-function showFavItem(id){
+function showFavItem(id) {
     let currentItem = null
-    for(let i = 0; i < drugsArray.length; i++){
-        if(drugsArray[i].id === id){
+    for (let i = 0; i < drugsArray.length; i++) {
+        if (drugsArray[i].id === id) {
             currentItem = drugsArray[i]
         }
     }
-    
+
 }

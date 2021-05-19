@@ -17,14 +17,17 @@ if (localStorage.getItem("loggedUser") === null) {
 
 let cart = JSON.parse(localStorage.getItem("cart"))
 console.log(cart)
-for(let i = 0; i < cart.length; i++){
+for (let i = 0; i < cart.length; i++) {
     $("#block").append(`
         <div class = 'wrapper-block'>
         <img src="${cart[i].img_src}">
-        <p>${cart[i].itemName}</p>
-        <p>${cart[i].category}</p>
-        <p>${cart[i].description}</p>
-        <button onclick="removeItem(${cart[i].id})">Remove item</button>
+        <p>Name: <span class = 'itemName'> ${cart[i].itemName}</span></p>
+        <p>Description: <span class = 'description'>${cart[i].description}</span></p>
+        <div class = 'text-wrapper'>
+        <p>Category: <span class = 'category'>${cart[i].category}</span></p>
+        <p>Price:  <span class = 'price'>$ ${cart[i].price}</span></p>
+        </div>
+        <button class = 'deleteItemFromCart' onclick="removeItem(${cart[i].id})">Delete from cart</button>
         </div>
     `)
 
