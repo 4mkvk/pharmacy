@@ -1,14 +1,16 @@
 let users = JSON.parse(localStorage.getItem("users"))
 let loggedUser = null
 let username = document.getElementById("userName")
+let logExit = document.getElementById("LogExit")
 
 if (localStorage.getItem("loggedUser") === null) {
-    userName.style.display = "none"
-    username.innerText = "Войдите"
+    userName.style.display =  "none"
+    logExit.innerText = "Log in"
 }
 else {
-    for (let i = 0; i < users.length; i++) {
+    for(let i = 0; i < users.length; i++){
         username.innerText = users[i].userName
+        logExit.innerText = "Exit"
     }
 }
 
@@ -68,22 +70,27 @@ class Item {
 let btnCreate = document.getElementById('createGood');
 let modalCreate = document.getElementById('modal')
 
-showModalCreate = () => {
-    modalCreate.style.display = 'flex'
-    modalCreate.style.transition = 'all 0.3s linear 0.1ms'
-    document.body.style.overflow = 'hidden'
-}
+
+
+
+let cartModal = document.getElementById("cart-modal")
+
+
 hideModalCreate = () => {
     modalCreate.style.display = 'none'
     document.body.style.overflow = 'auto'
 }
 
-
-let cartModal = document.getElementById('cart-modal');
+showModalCreate = () => {
+    modalCreate.style.display = 'flex'
+    modalCreate.style.transition = 'all 0.3s linear 0.1ms'
+    document.body.style.overflow = 'hidden'
+}
 
 hideCartModal = () => {
     cartModal.style.display = 'none'
 }
+
 
 
 let drugsArray = JSON.parse(localStorage.getItem('drugs'))
@@ -117,7 +124,6 @@ function addNewDrug() {
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
     location.reload()
 }
-
 
 countCart = 0
 let countInModal = document.getElementById('count')
@@ -154,3 +160,20 @@ function deleteItem(id) {
 function goToCart() {
     location.href = 'korzina.html'
 }
+
+function LogExit(){
+    if (localStorage.getItem('loggedUser') === null) {
+        location.href = 'login.html'
+
+    } else {
+        localStorage.removeItem('loggedUser')
+        logExit.innerText = 'Log in'
+        location.reload()
+    }
+}
+
+
+
+
+
+

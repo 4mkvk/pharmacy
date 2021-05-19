@@ -22,7 +22,7 @@
             <nav class="navbar">
                 <a href="korzina.html">cart</a>
                 <span id="userName"></span>
-                <a href="login.html">log in</a>
+                <a id="LogExit" onclick="LogExit()">log in</a>
             </nav>
         </header>
 
@@ -165,7 +165,7 @@
                     </div>
                     <div class="categories_item">
                         <img src="img/heart.png" alt="">
-                        <a href="#">Mental Health</a>
+                        <a href="#">Other Type</a>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,17 @@
             <br>
             <input type="text" id="price" placeholder="price" required>
             <br>
-            <input type="text" name="" id="category" placeholder="category" required>
+            <select type="" name="" id="category" placeholder="category" required>
+                <option value="Pregnant">Pregnant</option>
+                <option value="Skincare">Skincare</option>
+                <option value="Sleep">Sleep</option>
+                <option value="WomenHealth">Women`s Health</option>
+                <option value="MenHealth">Men`s Health</option>
+                <option value="Pain">Pain</option>
+                <option value="NewbornCare">Newborn Care</option>
+                <option value="ReproductiveHealth">Reproductive Health</option>
+                <option value="OtherType">Other Type</option>
+            </select>
             <br>
             <button id="btnSubmit" onclick="addNewDrug()">Add product</button>
         </div>
