@@ -175,6 +175,33 @@
             <br>
             <button id="btnSubmit" onclick="addNewDrug()">Add product</button>
         </div>
+
+
+        <div id="modalEdit">
+            <span id="displaynone" onclick="hideEditModal()">x</span>
+            <input type="text" id="itemName" placeholder="name of product" required>
+            <br>
+            <input type="text" id="imageUrl" placeholder="imageUrl" required>
+            <br>
+            <input type="text" id="desc" placeholder="write a description" required>
+            <br>
+            <input type="text" id="price" placeholder="price" required>
+            <br>
+            <select type="" name="" id="category" placeholder="category" required>
+                <option onclick="pregnantFind()" value="Pregnant">Pregnant</option>
+                <option onclick="skinFind()" value="Skincare">Skincare</option>
+                <option onclick="sleepFind()" value="Sleep">Sleep</option>
+                <option onclick="womenFind()" value="WomenHealth">Women`s Health</option>
+                <option onclick="menFind()" value="MenHealth">Men`s Health</option>
+                <option onclick="painFind()" value="Pain">Pain</option>
+                <option onclick="newbornFind()" value="NewbornCare">Newborn Care</option>
+                <option onclick="reproFind()" value="ReproductiveHealth">Reproductive Health</option>
+                <option onclick="otherFind()" value="OtherType">Other Type</option>
+            </select>
+            <br>
+            <button id="btnEdit" onclick="EditItem()">Edit</button>
+        </div>
+
     </div>
 
     <script src="script.js"></script>

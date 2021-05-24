@@ -308,7 +308,7 @@ width: 100%;
     padding: 50px 0;
 }
 
-#modal{
+#modal, #modalEdit{
     width: 30%;
     height: fit-content;
     background-color: #8CBD3F;
@@ -325,7 +325,7 @@ width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.3);
 }
-#modal input{
+#modal input, #modalEdit input{
     width: 40%;
     height: 30px;
     border-radius: 10px;

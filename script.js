@@ -74,8 +74,18 @@ class Item {
 let btnCreate = document.getElementById('createGood');
 let modalCreate = document.getElementById('modal')
 let modalSearch = document.getElementById("modalSearch")
+let modalEdit = document.getElementById('modalEdit')
+let editBtn = document.getElementById('editBtn')
 
 
+
+
+showEditModal = () =>{
+    modalEdit.style.display = 'flex'
+}
+hideEditModal = () =>{
+    modalEdit.style.display = 'none'
+}
 
 
 let cartModal = document.getElementById("cart-modal")
@@ -127,6 +137,9 @@ for (let i = 0; i < drugsArray.length; i++) {
                 <div class = 'products-items_links'>
                 <p class = "delItem" onclick = 'deleteItem(${drugsArray[i]['id']})' style = 'cursor:pointer'>delete item</p>
                 <p class = "addCart" onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
+                <div>
+                <button id = "editBtn" onclick = 'showEditModal()'>Edit</button>
+                </div>
             </div>
         `)
     }else{
@@ -137,6 +150,9 @@ for (let i = 0; i < drugsArray.length; i++) {
                 <span class = 'categorySpan'>${drugsArray[i]['category']}</span>
                 <div class = 'products-items_links'>
                 <p class = "addCart" onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
+                <div>
+                <button id = "editBtn" onclick = 'showEditModal()'>Edit</button>
+                </div>
             </div>
         `)
     }
@@ -258,3 +274,4 @@ function searchDrug() {
     localStorage.setItem("userCategory", JSON.stringify(chosenCategory))
     location.href = "search.html"
 }
+
