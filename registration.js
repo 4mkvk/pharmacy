@@ -13,8 +13,9 @@ class Item {
     price;
     img_src;
     category;
-    clicksCount
-    constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory) {
+    clicksCount;
+    userId;
+    constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory, newUserId) {
         this.id = NewId;
         this.itemName = newItemName;
         this.description = newDescription;
@@ -22,6 +23,7 @@ class Item {
         this.img_src = newImage
         this.category = newCategory
         this.clicksCount = 0
+        this.userId = newUserId
     }
     get itemName() {
         return this.itemName;

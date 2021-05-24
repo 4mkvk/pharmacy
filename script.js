@@ -27,7 +27,8 @@ class Item {
     img_src;
     category;
     clicksCount;
-    constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory) {
+    userId
+    constructor(NewId, newItemName, newImage, newDescription, newPrice, newCategory, newUserId) {
         this.id = NewId;
         this.itemName = newItemName;
         this.description = newDescription;
@@ -35,6 +36,7 @@ class Item {
         this.img_src = newImage
         this.category = newCategory
         this.clicksCount = 0
+        this.userId = newUserId
     }
     get itemName() {
         return this.itemName;
@@ -71,6 +73,7 @@ class Item {
 
 let btnCreate = document.getElementById('createGood');
 let modalCreate = document.getElementById('modal')
+let modalSearch = document.getElementById("modalSearch")
 
 
 
@@ -94,6 +97,17 @@ hideCartModal = () => {
     document.body.style.overflow = 'auto'
 }
 
+showModalSearch = () =>{
+    modalSearch.style.display = 'flex'
+    modalSearch.style.transition = 'all 0.3s linear 0.1ms'
+    document.body.style.overflow = 'hidden'
+}
+
+hideModalSearch = () =>{
+    modalSearch.style.display = 'none'
+    document.body.style.overflow = 'auto'
+}
+
 
 
 let drugsArray = JSON.parse(localStorage.getItem('drugs'))
@@ -101,8 +115,11 @@ console.log(drugsArray)
 
 const products = $('#products')
 
+let currentUser = JSON.parse(localStorage.getItem("loggedUser"));
+
 for (let i = 0; i < drugsArray.length; i++) {
-    products.append(`
+    if(drugsArray[i]['userId'] === currentUser.userId){
+        products.append(`
             <div class="products__item">
                 <img src="${drugsArray[i]['img_src']}" alt="">
                 <p>${drugsArray[i]['itemName']}</p>
@@ -111,7 +128,19 @@ for (let i = 0; i < drugsArray.length; i++) {
                 <p onclick = 'deleteItem(${drugsArray[i]['id']})' style = 'cursor:pointer'>delete item</p>
                 <p onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
             </div>
-`)
+        `)
+    }else{
+        products.append(`
+            <div class="products__item">
+                <img src="${drugsArray[i]['img_src']}" alt="">
+                <p>${drugsArray[i]['itemName']}</p>
+                <span>${drugsArray[i]['category']}</span>
+                <div class = 'products-items_links'>
+                <p onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
+            </div>
+        `)
+    }
+    
 }
 
 function addNewDrug() {
@@ -121,8 +150,9 @@ function addNewDrug() {
     let inputDescription = document.getElementById('desc').value
     let inputPrice = document.getElementById('price').value
     let inputCategory = document.getElementById('category').value
+    let userId = JSON.parse(localStorage.getItem("loggedUser")).userId;
 
-    let newDrug = new Item(newId, inputName, inputImageUrl, inputDescription, inputPrice, inputCategory)
+    let newDrug = new Item(newId, inputName, inputImageUrl, inputDescription, inputPrice, inputCategory, userId)
     drugsArray.push(newDrug)
     localStorage.setItem('drugs', JSON.stringify(drugsArray))
     location.reload()
@@ -216,4 +246,15 @@ function showFavItem(id) {
         }
     }
 
+}
+
+
+function searchDrug() {
+    let inputSearch = document.getElementById("itemNameSearch").value
+    let categorySearch = document.getElementById("category")
+    let chosenCategory = categorySearch.options[categorySearch.selectedIndex].text;
+
+    localStorage.setItem("userSearch", JSON.stringify(inputSearch))
+    localStorage.setItem("userCategory", JSON.stringify(chosenCategory))
+    location.href = "search.html"
 }

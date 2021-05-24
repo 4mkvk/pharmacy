@@ -14,7 +14,26 @@
     <div class="wrapper">
         <header class="header">
             <div class="catalog">
-                <a href="catalog.html">Catalog</a>
+                <a id="searchItem" onclick="showModalSearch()">Search</a>
+                <div id="modalSearch">
+                    <span id="displaynone" onclick="hideModalSearch()">x</span>
+                    <input type="text" id="itemNameSearch" placeholder="name of product" required>
+                    <br>
+                    <select type="" name="" id="category" placeholder="category" required>
+                        <option value="None">None</option>
+                        <option value="Pregnant">Pregnant</option>
+                        <option value="Skincare">Skincare</option>
+                        <option value="Sleep">Sleep</option>
+                        <option value="WomenHealth">Women`s Health</option>
+                        <option value="MenHealth">Men`s Health</option>
+                        <option value="Pain">Pain</option>
+                        <option value="NewbornCare">Newborn Care</option>
+                        <option value="ReproductiveHealth">Reproductive Health</option>
+                        <option value="OtherType">Other Type</option>
+                    </select>
+                    <br>
+                    <button id="btnSearch" onclick="searchDrug()">Search product</button>
+                </div>
             </div>
             <div class="logo">
                 <img src="img/jopa 1.png" alt="">
@@ -154,15 +173,15 @@
             <input type="text" id="price" placeholder="price" required>
             <br>
             <select type="" name="" id="category" placeholder="category" required>
-                <option value="Pregnant">Pregnant</option>
-                <option value="Skincare">Skincare</option>
-                <option value="Sleep">Sleep</option>
-                <option value="WomenHealth">Women`s Health</option>
-                <option value="MenHealth">Men`s Health</option>
-                <option value="Pain">Pain</option>
-                <option value="NewbornCare">Newborn Care</option>
-                <option value="ReproductiveHealth">Reproductive Health</option>
-                <option value="OtherType">Other Type</option>
+                <option onclick="pregnantFind()" value="Pregnant">Pregnant</option>
+                <option onclick="skinFind()" value="Skincare">Skincare</option>
+                <option onclick="sleepFind()" value="Sleep">Sleep</option>
+                <option onclick="womenFind()" value="WomenHealth">Women`s Health</option>
+                <option onclick="menFind()" value="MenHealth">Men`s Health</option>
+                <option onclick="painFind()" value="Pain">Pain</option>
+                <option onclick="newbornFind()" value="NewbornCare">Newborn Care</option>
+                <option onclick="reproFind()" value="ReproductiveHealth">Reproductive Health</option>
+                <option onclick="otherFind()" value="OtherType">Other Type</option>
             </select>
             <br>
             <button id="btnSubmit" onclick="addNewDrug()">Add product</button>
