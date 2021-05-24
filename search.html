@@ -8,12 +8,39 @@
     <link rel="stylesheet" href="search.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="korzina.css">
 </head>
 <body>
-    <div id="blockSearch">
+    <div class="wrapper">
+        <header class="header">
+            <div class="catalog">
+                <a id="searchItem" onclick="showModalSearch()">Search</a>
+                <div id="modalSearch">
+                    <h2>Want to search ?</h2>
+                    <p>Type there name of product</p>
+                    <span id="displaynone" onclick="hideModalSearch()">x</span>
+                    <input type="text" id="itemNameSearch" placeholder="name of product" required>
+                    <br>
+                    <button id="btnSearch" onclick="searchDrug()">Search product</button>
+                </div>
+            </div>
+            <div class="logo">
+                <div class="logo">
+                    <a href="index.html"><img src="img/jopa 1.png" alt=""></a>
+                </div>
+            </div>
+            <nav class="navbar">
+                <a href="korzina.html">cart</a>
+                <span id="userName"></span>
+                <a id="LogExit" onclick="LogExit()">log in</a>
+            </nav>
+        </header>
+        <div id="blockSearch">
 
-    </div>
-
+        </div>
+        </div>
+<!-- <script src="script.js"></script> -->
     <script src="search.js"></script>
 </body>
 </html>

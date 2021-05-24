@@ -46,3 +46,10 @@
     height: 170px;
     padding: 15px 0;
 }
+#blockSearch{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin-right: 0 auto;
+}

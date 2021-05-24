@@ -123,10 +123,10 @@ for (let i = 0; i < drugsArray.length; i++) {
             <div class="products__item">
                 <img src="${drugsArray[i]['img_src']}" alt="">
                 <p>${drugsArray[i]['itemName']}</p>
-                <span>${drugsArray[i]['category']}</span>
+                <span class = 'categorySpan'>${drugsArray[i]['category']}</span>
                 <div class = 'products-items_links'>
-                <p onclick = 'deleteItem(${drugsArray[i]['id']})' style = 'cursor:pointer'>delete item</p>
-                <p onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
+                <p class = "delItem" onclick = 'deleteItem(${drugsArray[i]['id']})' style = 'cursor:pointer'>delete item</p>
+                <p class = "addCart" onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
             </div>
         `)
     }else{
@@ -134,9 +134,9 @@ for (let i = 0; i < drugsArray.length; i++) {
             <div class="products__item">
                 <img src="${drugsArray[i]['img_src']}" alt="">
                 <p>${drugsArray[i]['itemName']}</p>
-                <span>${drugsArray[i]['category']}</span>
+                <span class = 'categorySpan'>${drugsArray[i]['category']}</span>
                 <div class = 'products-items_links'>
-                <p onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
+                <p class = "addCart" onclick = 'addToCart(${drugsArray[i]['id']})' style = 'cursor:pointer'>add to cart </p></div>
             </div>
         `)
     }
